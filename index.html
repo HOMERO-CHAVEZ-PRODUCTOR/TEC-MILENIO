@@ -21,14 +21,23 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--unitec-green) 100%);
-            background-attachment: fixed;
+            background-color: var(--dark-bg); /* Fallback de seguridad */
             font-family: 'Inter', sans-serif;
             color: var(--ivory); 
             line-height: 1.8; 
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
+        }
+
+        /* --- FIX PARA MÓVILES: Degradado en capa separada --- */
+        /* Se usa esta capa fija para evitar que en iPhone/Android el fondo desaparezca */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--unitec-green) 100%);
+            z-index: -2;
         }
 
         /* Fondo principal usando FFU.png */

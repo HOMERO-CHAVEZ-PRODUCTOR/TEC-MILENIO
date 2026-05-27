@@ -54,11 +54,14 @@
 
         /* --- ELEMENTOS TIPO PÍLDORA (VERTICALES) --- */
         .decor-layer {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; /* Cambiado de fixed a absolute para que no sigan al usuario al hacer scroll */
+            top: 0; left: 0; width: 100%; height: 100vh; /* Limitado a la altura de la primera pantalla */
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
+            /* Degradado para que se desvanezcan hacia abajo terminando la primera sección */
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
         }
 
         .pill {
@@ -270,8 +273,8 @@
 
         <article class="itinerary-section reveal">
             <h3>Itinerario</h3>
-            <div class="itinerary-row"><span>07:00 PM</span><span>RECEPCIÓN / SAX</span></div>
-            <div class="itinerary-row"><span>08:00 PM</span><span>CENA / VIOLÍN</span></div>
+            <div class="itinerary-row"><span>07:00 PM</span><span>CENA / VIOLÍN</span></div>
+            <div class="itinerary-row"><span>08:00 PM</span><span>RECEPCIÓN / SAX</span></div>
             <div class="itinerary-row"><span>09:05 PM</span><span>PALABRAS DE GENERACIÓN</span></div>
             <div class="itinerary-row"><span>09:10 PM</span><span>BRINDIS</span></div>
             <div class="itinerary-row"><span>09:15 PM</span><span>APERTURA DE PISTA</span></div>
